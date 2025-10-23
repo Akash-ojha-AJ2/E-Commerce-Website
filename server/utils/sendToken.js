@@ -9,7 +9,7 @@ export const sendToken = (user, statusCode, message, res) => {
       ),
       httpOnly: true,
       secure: true, // dev me false, production me true
-      sameSite: "lax", // localhost ke liye "lax", prod me "none"
+      sameSite: 'none', // localhost ke liye "lax", prod me "none"
     })
     .json({
       success: true,

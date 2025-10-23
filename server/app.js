@@ -30,7 +30,7 @@ app.use(cookieParser());
 // Allowed origins
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: "e-commerce-website-omega-black.vercel.app",
     credentials: true, // ✅ important
   })
 );

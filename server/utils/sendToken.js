@@ -8,7 +8,7 @@ export const sendToken = (user, statusCode, message, res) => {
         Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
       ),
       httpOnly: true,
-      secure: true // dev me false, production me true
+      secure: true, // dev me false, production me true
       sameSite: "lax", // localhost ke liye "lax", prod me "none"
     })
     .json({

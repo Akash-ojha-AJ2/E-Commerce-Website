@@ -1,5 +1,5 @@
 import React from 'react';
-import './ProductCardSkeleton.css';
+import './productCardSkeleton.css';
 
 const ProductCardSkeleton = () => {
   return (

@@ -55,7 +55,7 @@ const AppWrapper = () => {
 
   const logout = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/api/v1/user/logout`, {
+      const response = await fetch(`${backend}/api/v1/user/logout`, {
         credentials: "include"
       });
       const data = await response.json();
@@ -79,7 +79,7 @@ const AppWrapper = () => {
   // Cart count fetch function
   const fetchCartCount = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/v1/userproduct/cart-count', { 
+      const response = await fetch(`${backend}/api/v1/userproduct/cart-count`, { 
         credentials: 'include'
       });
 
@@ -103,7 +103,7 @@ const AppWrapper = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch('http://localhost:4000/api/v1/user/me', {
+        const res = await fetch(`${backend}/api/v1/user/me`, {
           credentials: 'include',
         });
 

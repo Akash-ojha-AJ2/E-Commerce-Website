@@ -28,20 +28,11 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Allowed origins
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://e-commerce-website-omega-black.vercel.app',
-];
-
 app.use(cors({
-  origin: function(origin, callback){
-    if(!origin) return callback(null, true); // allow non-browser requests
-    if(allowedOrigins.indexOf(origin) === -1){
-      const msg = `CORS policy does not allow access from ${origin}`;
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
+  origin: [
+    'https://e-commerce-website-omega-black.vercel.app', 
+    'http://localhost:5173'
+  ],
   credentials: true
 }));
 

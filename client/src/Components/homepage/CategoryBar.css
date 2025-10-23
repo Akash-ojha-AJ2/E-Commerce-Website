@@ -1,0 +1,78 @@
+/* src/components/HomePage/CategoryBar.css */
+
+/* Yeh default (mobile) style hai: scrollable aur left se start */
+.category-bar {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start; /* Mobile par left se start hoga */
+    
+    /* Scrollbar ko chhipane ke liye */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.category-bar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Jab screen badi hogi (992px se zyada), tab yeh style lagega */
+@media (min-width: 992px) {
+    .category-bar {
+        justify-content: center; /* Desktop par center mein aa jayega */
+    }
+}
+
+/* Default (Desktop) Styles for items */
+.category-item .category-icon-wrapper {
+    border-radius: 20px;
+    padding: 10px;
+    display: inline-flex;
+    transition: transform 0.2s ease-in-out;
+}
+.category-item:hover .category-icon-wrapper {
+    transform: scale(1.05);
+}
+
+.category-item img {
+    height: 52px;
+    width: 52px;
+}
+
+.category-item .text-center {
+    min-width: 90px;
+}
+
+/* --- Responsive Styles to shrink icons --- */
+
+/* For Tablets (<= 768px) */
+@media (max-width: 768px) {
+    .category-item .category-icon-wrapper {
+        padding: 8px;
+    }
+    .category-item img {
+        height: 40px;
+        width: 40px;
+    }
+    .category-item .text-center {
+        min-width: 75px;
+    }
+    .category-item .small {
+        font-size: 0.8rem;
+    }
+}
+
+/* For Mobiles (<= 576px) */
+@media (max-width: 576px) {
+    .category-item .category-icon-wrapper {
+        padding: 6px;
+    }
+    .category-item img {
+        height: 36px;
+        width: 36px;
+    }
+    .category-item .text-center {
+        min-width: 65px;
+    }
+    .category-item .small {
+        font-size: 0.75rem;
+    }
+}

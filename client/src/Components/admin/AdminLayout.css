@@ -1,0 +1,152 @@
+/* SellerLayout.css */
+.seller-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Sidebar Styles */
+.seller-sidebar {
+  width: 280px;
+  background: white;
+  padding: 30px 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-header h2 {
+  color: #333;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.user-welcome {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.user-avatar {
+  font-size: 40px;
+  color: #667eea;
+}
+
+.user-info h4 {
+  color: #333;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.user-info p {
+  color: #666;
+  font-size: 14px;
+}
+
+.sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-item:hover {
+  background: #f8f9fa;
+}
+
+.nav-item.active {
+  background: #667eea;
+  color: white;
+}
+
+.nav-icon {
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+}
+
+.nav-text {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.active-indicator {
+  position: absolute;
+  right: 20px;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Logout Section */
+.logout-section {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #e9ecef;
+}
+
+.logout-item {
+  background: #f8f9fa;
+  color: #dc3545;
+  border: 1px solid #f5c6cb;
+}
+
+.logout-item:hover {
+  background: #dc3545;
+  color: white;
+}
+
+/* Main Content */
+.seller-main-content {
+  flex: 1;
+  margin-left: 280px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .seller-sidebar {
+    width: 70px;
+  }
+  
+  .seller-main-content {
+    margin-left: 70px;
+  }
+  
+  .nav-text, .brand-text, .user-info {
+    display: none;
+  }
+  
+  .sidebar-header {
+    text-align: center;
+  }
+  
+  .nav-item {
+    justify-content: center;
+    padding: 15px;
+  }
+}

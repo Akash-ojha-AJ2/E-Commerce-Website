@@ -1,0 +1,436 @@
+/* SellerAllProduct.css */
+
+/* Main Container */
+.seller-products-page {
+  padding: 24px;
+  max-width: 1400px;
+  
+}
+
+/* Header Section */
+.seller-products-header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.seller-header-content .seller-page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.seller-header-content .seller-page-subtitle {
+  color: #6b7280;
+  font-size: 16px;
+  margin: 0;
+}
+
+.seller-add-product-btn {
+  background-color: #3b82f6;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.seller-add-product-btn:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+/* Stats and Filters Section */
+.seller-products-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.seller-stats-container {
+  display: flex;
+  gap: 16px;
+}
+
+.seller-stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+  border: 1px solid #f0f0f0;
+}
+
+.seller-stat-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.seller-stat-label {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.seller-filters-container {
+  display: flex;
+  align-items: center;
+}
+
+.seller-filter-buttons {
+  display: flex;
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 4px;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.seller-filter-btn {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.seller-filter-btn.seller-filter-active {
+  background: white;
+  color: #3b82f6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.seller-filter-btn:hover:not(.seller-filter-active) {
+  color: #4b5563;
+}
+
+/* Products Grid Section */
+.seller-products-grid-section {
+  margin-top: 16px;
+}
+
+.seller-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* Product Card */
+.seller-product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #f0f0f0;
+}
+
+.seller-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.seller-product-image-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.seller-product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.seller-product-card:hover .seller-product-image {
+  transform: scale(1.05);
+}
+
+/* Rating Badge */
+.seller-rating-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #10b981;
+  color: white;
+  padding: 6px 8px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.seller-rating-value {
+  line-height: 1;
+}
+
+.seller-rating-star {
+  font-size: 12px;
+}
+
+.seller-product-info {
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.seller-product-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 44px;
+  margin: 0;
+}
+
+/* Stock and Category Information */
+.seller-product-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.seller-stock-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.seller-stock-status {
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.seller-stock-status.seller-in-stock {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.seller-stock-status.seller-out-of-stock {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.seller-stock-count {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.seller-category-info {
+  background: #f3f4f6;
+  color: #4b5563;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+  width: fit-content;
+}
+
+/* Product Rating */
+.seller-product-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.seller-stars {
+  display: flex;
+  gap: 2px;
+  color: #fbbf24;
+}
+
+.seller-stars i {
+  font-size: 14px;
+}
+
+.seller-rating-count {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.seller-price-section {
+  margin-top: auto;
+}
+
+.seller-product-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.seller-product-actions {
+  display: flex;
+  padding: 16px;
+  gap: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.seller-product-actions .btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.seller-edit-btn {
+  border: 1px solid #d1d5db;
+  color: #4b5563;
+}
+
+.seller-edit-btn:hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.seller-delete-btn {
+  border: 1px solid #fecaca;
+  color: #ef4444;
+}
+
+.seller-delete-btn:hover:not(:disabled) {
+  background-color: #fef2f2;
+  border-color: #fca5a5;
+}
+
+.seller-delete-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Empty State */
+.seller-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.seller-empty-icon {
+  font-size: 64px;
+  color: #d1d5db;
+  margin-bottom: 20px;
+}
+
+.seller-empty-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.seller-empty-text {
+  color: #6b7280;
+  margin-bottom: 24px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.seller-show-all-btn,
+.seller-add-first-btn {
+  margin-top: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .seller-products-page {
+    padding: 16px;
+  }
+  
+  .seller-products-header-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .seller-products-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .seller-stats-container {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .seller-stat-card {
+    flex: 1;
+    min-width: auto;
+  }
+  
+  .seller-filter-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .seller-products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .seller-products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .seller-product-actions {
+    flex-direction: column;
+  }
+  
+  .seller-stock-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .seller-filter-buttons {
+    flex-direction: column;
+  }
+  
+  .seller-filter-btn {
+    text-align: center;
+  }
+}

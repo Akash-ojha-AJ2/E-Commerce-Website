@@ -1,0 +1,59 @@
+.star-rating {
+    display: inline-block;
+}
+
+.star-rating input[type="radio"] {
+    display: none; /* असली रेडियो बटन छिपाएँ */
+}
+
+.star-rating .star {
+    cursor: pointer;
+    font-size: 2rem; /* स्टार का साइज़ */
+    transition: color 0.2s;
+}
+
+.star-rating .star.off {
+    color: #ccc; /* खाली स्टार */
+}
+
+.star-rating .star.on {
+    color: #ffc107; /* भरा हुआ स्टार (Bootstrap warning color) */
+}
+
+
+
+
+.btn-loading-spinner .dot {
+    display: inline-block;
+    width: 7px;           /* डॉट का साइज़ */
+    height: 7px;
+    margin: 0 2px;        /* डॉट्स के बीच में गैप */
+    background-color: #ffffff; /* बटन के टेक्स्ट का रंग (सफ़ेद) */
+    border-radius: 50%;
+    
+    /* एनीमेशन सेट करना */
+    animation: btn-spinner-pulse 1.2s infinite ease-in-out;
+}
+
+/* एनीमेशन में देरी (Delay) ताकि वे एक-एक करके पल्स करें */
+.btn-loading-spinner .dot1 {
+    animation-delay: 0s;
+}
+.btn-loading-spinner .dot2 {
+    animation-delay: 0.16s;
+}
+.btn-loading-spinner .dot3 {
+    animation-delay: 0.32s;
+}
+
+/* पल्स (Pulse) एनीमेशन की परिभाषा */
+@keyframes btn-spinner-pulse {
+    0%, 80%, 100% {
+        transform: scale(0.5); /* छोटा साइज़ */
+        opacity: 0.5;
+    }
+    40% {
+        transform: scale(1.0); /* बड़ा साइज़ */
+        opacity: 1;
+    }
+}

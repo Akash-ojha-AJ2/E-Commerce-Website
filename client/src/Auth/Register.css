@@ -1,0 +1,196 @@
+/* Register.css */
+
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.register-card {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 1000px;
+  border: 2px solid #725391;
+  transition: transform 0.3s ease;
+}
+
+.register-card:hover {
+  transform: translateY(-5px);
+}
+
+.register-title {
+  color: #725391;
+}
+
+.custom-btn {
+  background-color: #725391;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #883dd4;
+}
+
+.custom-input-input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 2px solid #725391 ;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.custom-input:focus {
+  border-color: #883dd4;
+  box-shadow: 0 0 0 0.2rem rgba(53, 120, 117, 0.2);
+}
+
+.register-link {
+  color: #725391;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/* Register.css */
+
+
+.register-card {
+  background: white;
+  border-radius: 16px;
+  border: none;
+  max-width: 1200px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+}
+
+.register-title {
+  color: #333;
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.custom-input {
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.input-group-text {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: 2px solid #667eea;
+  border-right: none;
+  font-weight: 600;
+}
+
+.custom-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 16px;
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.custom-btn:active {
+  transform: translateY(0);
+}
+
+.custom-btn:disabled {
+  opacity: 0.7;
+  transform: none;
+  box-shadow: none;
+}
+
+.register-link {
+  color: #667eea;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.register-link:hover {
+  color: #764ba2;
+}
+
+.form-check-input:checked {
+  background-color: #667eea;
+  border-color: #667eea;
+}
+
+/* Unique Register Spinner */
+.register-spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: register-spin 0.8s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes register-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Form check alignment */
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-check-input {
+  margin-top: 0;
+}
+
+/* Responsive design */
+@media (max-width: 576px) {
+  .register-card {
+    margin: 10px;
+    padding: 20px;
+  }
+  
+  .register-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Input group focus state */
+.input-group:focus-within .input-group-text {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+}

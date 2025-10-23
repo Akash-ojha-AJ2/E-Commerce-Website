@@ -50,7 +50,6 @@ const AppWrapper = () => {
     setToken(null);
     setUser(null);
     setCartCount(0); 
-    setNotifications([]); // Clear notifications on logout
   };
 
   const logout = async () => {
@@ -65,7 +64,6 @@ const AppWrapper = () => {
         setUser(null);
         setIsAuthenticated(false);
         setCartCount(0); // Reset cart count
-        setNotifications([]); // Clear notifications
         logoutt();
       } else {
         toast.error(data.message || "Logout failed");

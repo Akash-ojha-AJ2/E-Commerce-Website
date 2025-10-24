@@ -1750,7 +1750,6 @@ function WashingMachineProfessionalCard({ machine, index, onWishlistToggle, onBu
 
       <div className="washing-machine-professional-price-section">
         <div className="washing-machine-professional-price">₹{machine.price?.toLocaleString()}</div>
-        <div className="washing-machine-professional-delivery">Free Install</div>
       </div>
     </div>
   );
@@ -1814,7 +1813,7 @@ function GymProfessionalCard({ gym, index, onWishlistToggle, onBuyNow }) {
 
       <div className="gym-professional-price-section">
         <div className="gym-professional-price">₹{gym.price?.toLocaleString()}</div>
-        <div className="gym-professional-material">{specs.material.split(' ')[0]}</div>
+        
       </div>
     </div>
   );

@@ -1743,7 +1743,8 @@ function WashingMachineProfessionalCard({ machine, index, onWishlistToggle, onBu
       <div className="washing-machine-professional-name">{machine.name}</div>
       
       <div className="washing-machine-professional-capacity">
-        <span>⚡</span> Capacity: {specs.capacity}
+        <span>⚡</span> Capacity: {truncateName(specs.capacity, 14)}
+              
       </div>
       
       <div className="washing-machine-professional-type">{specs.type}</div>

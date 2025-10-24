@@ -1041,6 +1041,12 @@ function MobileProductsGrid({ products, onWishlistToggle, onBuyNow }) {
   );
 }
 
+
+const truncateName = (name, maxLength) => {
+  if (!name) return "";
+  return name.length > maxLength ? name.substring(0, maxLength) + "..." : name;
+};
+
 // Mobile Product Card Component
 // Mobile Product Card Component
 function MobileProductCard({ product, index, onWishlistToggle, onBuyNow }) {
@@ -1096,7 +1102,7 @@ function MobileProductCard({ product, index, onWishlistToggle, onBuyNow }) {
       {/* Product Details */}
       <div className="mobile-product-details">
         <div className="mobile-product-name">
-          {getProductName(product.name)}
+          {truncateName(product.name, 12)}
         </div>
         
         <div className="mobile-product-price">
@@ -1264,23 +1270,6 @@ function LaptopScrollCard({ laptop, index, onWishlistToggle, onBuyNow }) {
 
 
 
-
-// Headphones Mobile Vertical Component
-function HeadphonesMobileVertical({ products, onWishlistToggle, onBuyNow }) {
-  return (
-    <div className="headphone-mobile-container">
-      {products.map((headphone, index) => (
-        <HeadphoneMobileCard 
-          key={headphone._id}
-          headphone={headphone}
-          index={index}
-          onWishlistToggle={onWishlistToggle}
-          onBuyNow={onBuyNow}
-        />
-      ))}
-    </div>
-  );
-}
 
 // Headphone Mobile Card Component
 // Headphones Compact Container Component
@@ -1452,7 +1441,7 @@ function WatchesProfessional({ products, onWishlistToggle, onBuyNow }) {
       </div>
 
       {/* Products Grid */}
-      <div className="watches-professional-grid">
+      <div className="mobile-products-grid">
         {products.map((watch, index) => (
           <WatchProfessionalCard 
             key={watch._id}
@@ -2214,42 +2203,22 @@ function GymProfessionalCard({ gym, index, onWishlistToggle, onBuyNow }) {
             <p className="section-subtitle">Timeless pieces for every occasion</p>
           </div>
           
-  {isLoading.watches ? (
-    isMobile ? (
-      <div className="watches-professional-container">
-        <div className="watches-professional-header">
-          <h2 className="watches-professional-title">Premium Watches</h2>
-          <p className="watches-professional-subtitle">Elegant timepieces for every occasion</p>
-        </div>
-        <div className="watches-professional-grid">
-          {Array.from({ length: 4 }).map((_, index) => (
-            <div key={index} className="watch-professional-skeleton">
-              <div className="watch-professional-skeleton-image"></div>
-              <div className="watch-professional-skeleton-brand"></div>
-              <div className="watch-professional-skeleton-name"></div>
-              <div className="watch-professional-skeleton-features">
-                <div className="watch-professional-skeleton-feature"></div>
-                <div className="watch-professional-skeleton-feature"></div>
-              </div>
-              <div className="watch-professional-skeleton-footer">
-                <div className="watch-professional-skeleton-price"></div>
-                <div className="watch-professional-skeleton-rating"></div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    ) : (
-      <ProductCardSkeleton count={4} />
-    )
-  ) : isMobile ? (
-    <WatchesProfessional 
-      products={watches.slice(0, 4)}
-      onWishlistToggle={handleAddToCart}
-      onBuyNow={handleBuyNow}
-    />
-  ) : (
 
+
+
+{isLoading.watches ? (
+  isMobile ? (
+    <ProductCardSkeleton count={4} isMobile={true} />
+  ) : (
+    <ProductCardSkeleton count={4} />
+  )
+) : isMobile ? (
+  <MobileProductsGrid 
+    products={watches.slice(0, 4)}
+    onWishlistToggle={handleAddToCart}
+    onBuyNow={handleBuyNow}
+  />
+) : (
             <Row className="g-3">
               {watches.slice(0, 4).map((watch) => (
                 <Col key={watch._id} xs={6} md={4} lg={3}>
@@ -2677,29 +2646,5 @@ function GymProfessionalCard({ gym, index, onWishlistToggle, onBuyNow }) {
 }
 
 export default HomePage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

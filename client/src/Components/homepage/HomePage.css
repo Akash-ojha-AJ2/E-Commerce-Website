@@ -1612,3 +1612,1497 @@ body {
   border-radius: 12px;
   overflow: hidden;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile Cart View Styles - 2 items per row */
+@media (max-width: 768px) {
+  .mobile-products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 8px;
+  }
+
+  .mobile-product-card {
+    position: relative;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer; /* ✅ ADD: Make entire card clickable */
+  }
+
+  .mobile-product-image-container {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    margin-bottom: 8px;
+  }
+
+  .mobile-product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  .mobile-product-review {
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(255,255,255,0.95);
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .mobile-product-rating {
+    color: #000000;
+    font-weight: 700;
+    font-size: 10px;
+  }
+
+  .mobile-product-review-star {
+    color: #22c55e;
+    font-size: 10px;
+  }
+
+  .mobile-product-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ✅ CHANGE: Single line with ellipsis, no wrapping */
+  .mobile-product-name {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #1f2937;
+    white-space: nowrap; /* ✅ Prevent wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* ✅ Add ... for long names */
+    margin-bottom: 8px;
+  }
+
+  .mobile-product-price {
+    font-size: 15px;
+    font-weight: 700;
+    color: #dc2626;
+    margin-bottom: 8px;
+  }
+
+  /* ✅ REMOVE: Buy Now button styles completely */
+
+  .mobile-product-wishlist {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    border: none;
+    cursor: pointer;
+    z-index: 3; /* ✅ Increase z-index to be above clickable area */
+  }
+
+  .mobile-product-wishlist-icon {
+    font-size: 16px;
+    color: #9ca3af;
+    transition: all 0.2s;
+  }
+
+  .mobile-product-wishlist-icon.active {
+    color: #dc2626;
+  }
+
+  /* Skeleton loading - Remove button skeleton */
+  .mobile-product-card.skeleton {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  .skeleton-image {
+    width: 100%;
+    height: 120px;
+    background: #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+
+  .skeleton-line {
+    height: 12px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+
+  .skeleton-title {
+    height: 14px;
+    width: 80%;
+  }
+
+  .skeleton-price {
+    height: 16px;
+    width: 60%;
+  }
+
+  /* ✅ REMOVE: skeleton-button styles */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Laptops Mobile Horizontal Scroll Design */
+@media (max-width: 768px) {
+  .laptop-horizontal-scroll {
+    padding: 0 8px;
+  }
+
+  .laptop-scroll-container {
+    display: flex;
+    gap: 16px;
+    padding: 16px 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .laptop-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .laptop-scroll-card {
+    flex: 0 0 280px;
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+    scroll-snap-align: start;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .laptop-scroll-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .laptop-performance-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+    z-index: 2;
+  }
+
+  .laptop-scroll-wishlist {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    z-index: 3;
+    transition: all 0.3s ease;
+  }
+
+  .laptop-scroll-wishlist:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+  }
+
+  .laptop-scroll-wishlist-icon {
+    font-size: 16px;
+    color: #64748b;
+    transition: all 0.3s ease;
+  }
+
+  .laptop-scroll-wishlist-icon.active {
+    color: #ef4444;
+  }
+
+  .laptop-scroll-image-container {
+    width: 100%;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .laptop-scroll-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .laptop-scroll-brand {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .laptop-scroll-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .laptop-scroll-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .laptop-spec-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .laptop-spec-icon {
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: white;
+  }
+
+  .laptop-spec-text {
+    font-size: 10px;
+    color: #475569;
+    font-weight: 600;
+  }
+
+  .laptop-scroll-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .laptop-scroll-price {
+    font-size: 18px;
+    font-weight: 800;
+    color: #dc2626;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .laptop-scroll-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(34, 197, 94, 0.1);
+    padding: 4px 8px;
+    border-radius: 8px;
+  }
+
+  .laptop-scroll-rating-number {
+    font-size: 11px;
+    font-weight: 800;
+    color: #000;
+  }
+
+  .laptop-scroll-rating-star {
+    font-size: 11px;
+    color: #22c55e;
+  }
+
+  /* Skeleton for horizontal scroll */
+  .laptop-scroll-skeleton {
+    flex: 0 0 280px;
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 16px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  .laptop-scroll-skeleton-image {
+    width: 100%;
+    height: 140px;
+    background: #e2e8f0;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+
+  .laptop-scroll-skeleton-line {
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+
+  .laptop-scroll-skeleton-title {
+    height: 16px;
+    width: 80%;
+  }
+
+  .laptop-scroll-skeleton-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .laptop-scroll-skeleton-spec {
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 4px;
+  }
+
+  .laptop-scroll-skeleton-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+  }
+
+  .laptop-scroll-skeleton-price {
+    height: 18px;
+    width: 80px;
+    background: #e2e8f0;
+    border-radius: 6px;
+  }
+
+  .laptop-scroll-skeleton-rating {
+    height: 20px;
+    width: 40px;
+    background: #e2e8f0;
+    border-radius: 8px;
+  }
+}
+
+/* Scroll indicators */
+.laptop-scroll-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.laptop-scroll-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  transition: all 0.3s ease;
+}
+
+.laptop-scroll-indicator.active {
+  background: #3b82f6;
+  width: 20px;
+  border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Headphones Mobile Vertical Design */
+/* Headphones Mobile Container Design */
+@media (max-width: 768px) {
+  .headphone-compact-container {
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    border-radius: 24px;
+    padding: 20px 16px;
+    margin: 0 8px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .headphone-compact-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .headphone-compact-header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .headphone-compact-title {
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+  }
+
+  .headphone-compact-subtitle {
+    font-size: 14px;
+    color: #94a3b8;
+    font-weight: 500;
+  }
+
+  .headphone-compact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .headphone-compact-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .headphone-compact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .headphone-compact-card:hover::before {
+    left: 100%;
+  }
+
+  .headphone-compact-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(139, 92, 246, 0.3);
+  }
+
+  .headphone-compact-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 8px;
+    font-weight: 700;
+    z-index: 3;
+  }
+
+  .headphone-compact-image-container {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .headphone-compact-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+    transition: transform 0.3s ease;
+  }
+
+  .headphone-compact-card:hover .headphone-compact-image {
+    transform: scale(1.05);
+  }
+
+  .headphone-compact-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #f8fafc;
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 32px;
+  }
+
+  .headphone-compact-features {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .headphone-compact-feature {
+    background: rgba(139, 92, 246, 0.2);
+    color: #c4b5fd;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 7px;
+    font-weight: 600;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+  }
+
+  .headphone-compact-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .headphone-compact-price {
+    font-size: 14px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .headphone-compact-rating {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: rgba(34, 197, 94, 0.2);
+    padding: 2px 6px;
+    border-radius: 8px;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+  }
+
+  .headphone-compact-rating-number {
+    font-size: 9px;
+    font-weight: 700;
+    color: #22c55e;
+  }
+
+  .headphone-compact-rating-star {
+    font-size: 9px;
+    color: #22c55e;
+  }
+
+  /* Skeleton for compact design */
+  .headphone-compact-skeleton {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 16px;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  .headphone-compact-skeleton-image {
+    width: 100%;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+
+  .headphone-compact-skeleton-name {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+
+  .headphone-compact-skeleton-features {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .headphone-compact-skeleton-feature {
+    height: 12px;
+    width: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+
+  .headphone-compact-skeleton-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .headphone-compact-skeleton-price {
+    height: 14px;
+    width: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+  }
+
+  .headphone-compact-skeleton-rating {
+    height: 16px;
+    width: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  }
+}
+
+/* Audio wave animation for container */
+@keyframes audioWave {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+.headphone-wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  padding: 0 20px;
+  opacity: 0.6;
+}
+
+.headphone-wave-bar {
+  width: 3px;
+  background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+  border-radius: 2px;
+  animation: audioWave 1.5s infinite ease-in-out;
+}
+
+.headphone-wave-bar:nth-child(2) { animation-delay: 0.1s; }
+.headphone-wave-bar:nth-child(3) { animation-delay: 0.2s; }
+.headphone-wave-bar:nth-child(4) { animation-delay: 0.3s; }
+.headphone-wave-bar:nth-child(5) { animation-delay: 0.4s; }
+
+
+
+
+
+
+
+
+
+
+/* Professional Watches Mobile Design */
+@media (max-width: 768px) {
+  .watches-professional-container {
+    padding: 0 12px;
+  }
+
+  .watches-professional-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .watch-professional-card {
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .watch-professional-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border-color: #e2e8f0;
+  }
+
+  .watch-professional-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: #dc2626;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 700;
+    z-index: 2;
+  }
+
+  .watch-professional-wishlist {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+
+  .watch-professional-wishlist:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+  }
+
+  .watch-professional-wishlist-icon {
+    font-size: 14px;
+    color: #64748b;
+    transition: all 0.3s ease;
+  }
+
+  .watch-professional-wishlist-icon.active {
+    color: #dc2626;
+  }
+
+  .watch-professional-image-container {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .watch-professional-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .watch-professional-card:hover .watch-professional-image {
+    transform: scale(1.05);
+  }
+
+  .watch-professional-brand {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .watch-professional-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 32px;
+  }
+
+  .watch-professional-features {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .watch-professional-feature {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 9px;
+    font-weight: 500;
+    border: 1px solid #e2e8f0;
+  }
+
+  .watch-professional-price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .watch-professional-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #dc2626;
+  }
+
+  .watch-professional-original-price {
+    font-size: 12px;
+    color: #94a3b8;
+    text-decoration: line-through;
+    margin-left: 4px;
+  }
+
+  .watch-professional-discount {
+    font-size: 10px;
+    color: #16a34a;
+    font-weight: 600;
+    background: #dcfce7;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .watch-professional-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .watch-professional-stars {
+    display: flex;
+    gap: 1px;
+  }
+
+  .watch-professional-star {
+    font-size: 10px;
+    color: #fbbf24;
+  }
+
+  .watch-professional-star.empty {
+    color: #e2e8f0;
+  }
+
+  .watch-professional-rating-count {
+    font-size: 10px;
+    color: #64748b;
+    margin-left: 2px;
+  }
+
+  .watch-professional-delivery {
+    font-size: 10px;
+    color: #16a34a;
+    font-weight: 500;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* Skeleton for professional design */
+  .watch-professional-skeleton {
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  .watch-professional-skeleton-image {
+    width: 100%;
+    height: 120px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+
+  .watch-professional-skeleton-brand {
+    height: 10px;
+    width: 60px;
+    background: #f1f5f9;
+    border-radius: 5px;
+    margin-bottom: 8px;
+  }
+
+  .watch-professional-skeleton-name {
+    height: 12px;
+    width: 90%;
+    background: #f1f5f9;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+
+  .watch-professional-skeleton-features {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .watch-professional-skeleton-feature {
+    height: 16px;
+    width: 40px;
+    background: #f1f5f9;
+    border-radius: 8px;
+  }
+
+  .watch-professional-skeleton-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .watch-professional-skeleton-price {
+    height: 16px;
+    width: 70px;
+    background: #f1f5f9;
+    border-radius: 8px;
+  }
+
+  .watch-professional-skeleton-rating {
+    height: 14px;
+    width: 50px;
+    background: #f1f5f9;
+    border-radius: 7px;
+  }
+}
+
+/* Professional header */
+.watches-professional-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 0 12px;
+}
+
+.watches-professional-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.watches-professional-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* View all button */
+.watches-view-all {
+  text-align: center;
+  margin-top: 20px;
+  padding: 0 12px;
+}
+
+.watches-view-all-btn {
+  background: white;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.watches-view-all-btn:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+
+
+
+/* Tablets Mobile Design */
+@media (max-width: 768px) {
+  .tablets-professional-container {
+    padding: 0 12px;
+  }
+
+  .tablets-professional-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .tablet-professional-card {
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .tablet-professional-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .tablet-professional-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: #2563eb;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 700;
+    z-index: 2;
+  }
+
+  .tablet-professional-image-container {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .tablet-professional-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .tablet-professional-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 32px;
+  }
+
+  .tablet-professional-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .tablet-professional-spec {
+    font-size: 10px;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .tablet-professional-spec-icon {
+    color: #2563eb;
+    font-size: 10px;
+  }
+
+  .tablet-professional-price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .tablet-professional-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #dc2626;
+  }
+
+  .tablet-professional-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: #fffbeb;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid #fef3c7;
+  }
+
+  .tablet-professional-rating-number {
+    font-size: 10px;
+    font-weight: 700;
+    color: #d97706;
+  }
+
+  .tablet-professional-rating-star {
+    font-size: 10px;
+    color: #f59e0b;
+  }
+}
+
+/* Washing Machines Mobile Design */
+@media (max-width: 768px) {
+  .washing-machines-professional-container {
+    padding: 0 12px;
+  }
+
+  .washing-machines-professional-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .washing-machine-professional-card {
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .washing-machine-professional-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .washing-machine-professional-feature {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #059669;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 700;
+    z-index: 2;
+  }
+
+  .washing-machine-professional-image-container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    background: #f0fdf4;
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .washing-machine-professional-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .washing-machine-professional-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 32px;
+  }
+
+  .washing-machine-professional-capacity {
+    font-size: 11px;
+    color: #059669;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .washing-machine-professional-type {
+    font-size: 10px;
+    color: #64748b;
+    margin-bottom: 10px;
+  }
+
+  .washing-machine-professional-price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .washing-machine-professional-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #dc2626;
+  }
+
+  .washing-machine-professional-delivery {
+    font-size: 10px;
+    color: #059669;
+    font-weight: 600;
+    background: #f0fdf4;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid #bbf7d0;
+  }
+}
+
+/* Gym Essentials Mobile Design */
+@media (max-width: 768px) {
+  .gym-professional-container {
+    padding: 0 12px;
+  }
+
+  .gym-professional-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .gym-professional-card {
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .gym-professional-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .gym-professional-sports {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: #dc2626;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 700;
+    z-index: 2;
+  }
+
+  .gym-professional-image-container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    background: #fef2f2;
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .gym-professional-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .gym-professional-brand {
+    font-size: 11px;
+    color: #dc2626;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .gym-professional-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 32px;
+  }
+
+  .gym-professional-purpose {
+    font-size: 10px;
+    color: #64748b;
+    margin-bottom: 10px;
+  }
+
+  .gym-professional-price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .gym-professional-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #dc2626;
+  }
+
+  .gym-professional-material {
+    font-size: 10px;
+    color: #059669;
+    font-weight: 600;
+    background: #f0fdf4;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid #bbf7d0;
+  }
+}
+
+/* Professional Headers */
+.section-header-professional {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 0 12px;
+}
+
+.section-title-professional {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.section-subtitle-professional {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Skeleton Styles */
+.tablet-professional-skeleton,
+.washing-machine-professional-skeleton,
+.gym-professional-skeleton {
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.professional-skeleton-image {
+  width: 100%;
+  height: 120px;
+  background: #f1f5f9;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.professional-skeleton-name {
+  height: 12px;
+  width: 90%;
+  background: #f1f5f9;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.professional-skeleton-spec {
+  height: 10px;
+  width: 70%;
+  background: #f1f5f9;
+  border-radius: 5px;
+  margin-bottom: 6px;
+}
+
+.professional-skeleton-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.professional-skeleton-price {
+  height: 16px;
+  width: 70px;
+  background: #f1f5f9;
+  border-radius: 8px;
+}
+
+.professional-skeleton-badge {
+  height: 18px;
+  width: 50px;
+  background: #f1f5f9;
+  border-radius: 9px;
+}

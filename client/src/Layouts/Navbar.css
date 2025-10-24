@@ -297,7 +297,7 @@
     .nav-seller-btn,
     .nav-profile-btn {
         padding: 0.5rem;
-        min-width: 40px;
+        min-width: 25px;
         justify-content: center;
     }
     
@@ -320,11 +320,11 @@
     }
     
     .logo-icon {
-        font-size: 1.2rem !important;
+        font-size: 1.3rem !important;
     }
     
     .brand-text {
-        font-size: 1.2rem !important;
+        font-size: 1.3rem !important;
     }
     
     .nav-actions {
@@ -334,16 +334,21 @@
     .nav-icon-btn,
     .nav-seller-btn,
     .nav-profile-btn {
-        min-width: 35px;
+        min-width: 25px;
         padding: 0.3rem;
     }
     
-    .nav-icon-btn svg,
-    .nav-profile-btn svg,
+   
+    .nav-profile-btn svg{
+       font-size: 1rem !important;
+        width: 1rem !important;
+        height: 1rem !important;
+
+    }
     .nav-seller-btn svg {
-        font-size: 1.2rem !important;
-        width: 1.2rem !important;
-        height: 1.2rem !important;
+        font-size: 1rem !important;
+        width: 1rem !important;
+        height: 1rem !important;
     }
 }
 
@@ -990,66 +995,6 @@
         font-size: 0.6rem;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

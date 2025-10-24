@@ -1284,10 +1284,7 @@ function HeadphonesCompactContainer({ products, onWishlistToggle, onBuyNow }) {
       </div>
 
       {/* Header */}
-      <div className="headphone-compact-header">
-        <h2 className="headphone-compact-title">Premium Audio</h2>
-        <p className="headphone-compact-subtitle">Immersive Sound Experience</p>
-      </div>
+     
 
       {/* Products Grid */}
       <div className="headphone-compact-grid">
@@ -1435,10 +1432,7 @@ function WatchesProfessional({ products, onWishlistToggle, onBuyNow }) {
   return (
     <div className="watches-professional-container">
       {/* Header */}
-      <div className="watches-professional-header">
-        <h2 className="watches-professional-title">Premium Watches</h2>
-        <p className="watches-professional-subtitle">Elegant timepieces for every occasion</p>
-      </div>
+     
 
       {/* Products Grid */}
       <div className="mobile-products-grid">
@@ -1620,10 +1614,7 @@ function WatchProfessionalCard({ watch, index, onWishlistToggle, onBuyNow }) {
 function TabletsProfessional({ products, onWishlistToggle, onBuyNow }) {
   return (
     <div className="tablets-professional-container">
-      <div className="section-header-professional">
-        <h2 className="section-title-professional">Smart Tablets</h2>
-        <p className="section-subtitle-professional">Perfect for entertainment and productivity</p>
-      </div>
+    
 
       <div className="tablets-professional-grid">
         {products.map((tablet, index) => (
@@ -1700,10 +1691,7 @@ function TabletProfessionalCard({ tablet, index, onWishlistToggle, onBuyNow }) {
 function WashingMachinesProfessional({ products, onWishlistToggle, onBuyNow }) {
   return (
     <div className="washing-machines-professional-container">
-      <div className="section-header-professional">
-        <h2 className="section-title-professional">Washing Machines</h2>
-        <p className="section-subtitle-professional">Modern appliances for modern homes</p>
-      </div>
+    
 
       <div className="washing-machines-professional-grid">
         {products.map((machine, index) => (
@@ -1771,10 +1759,7 @@ function WashingMachineProfessionalCard({ machine, index, onWishlistToggle, onBu
 function GymEssentialsProfessional({ products, onWishlistToggle, onBuyNow }) {
   return (
     <div className="gym-professional-container">
-      <div className="section-header-professional">
-        <h2 className="section-title-professional">Gym Essentials</h2>
-        <p className="section-subtitle-professional">Step out in comfort and style</p>
-      </div>
+    >
 
       <div className="gym-professional-grid">
         {products.map((gym, index) => (

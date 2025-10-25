@@ -44,35 +44,31 @@ import nodemailer from "nodemailer";
 
 export const sendEmail = async ({ email, subject, html }) => {
   try {
-    // Render.com par Gmail best work karta hai
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // Service explicitly set karo
+      service: 'gmail',
       host: 'smtp.gmail.com',
-      port: 587,
-      secure: false,
+      port: 465, // ✅ 465 try karo (587 block hai)
+      secure: true, // ✅ 465 ke liye true
       auth: {
         user: process.env.SMTP_MAIL,
         pass: process.env.SMTP_PASSWORD, // Gmail App Password
       },
-      connectionTimeout: 30000, // 30 seconds
-      greetingTimeout: 30000
+      connectionTimeout: 60000, // 60 seconds
+      greetingTimeout: 60000
     });
 
-    // Mail options
     const mailOptions = {
       from: `"ShopKart" <${process.env.SMTP_MAIL}>`,
       to: email,
       subject,
       html,
-      text: "Please view this email in HTML format.",
     };
 
-    // Send mail
     const info = await transporter.sendMail(mailOptions);
     console.log("✅ Email sent:", info.messageId);
     return info;
   } catch (error) {
     console.error("❌ Email sending failed:", error.message);
-    throw error; // Error throw karo taki calling function handle kar sake
+    throw error;
   }
 };

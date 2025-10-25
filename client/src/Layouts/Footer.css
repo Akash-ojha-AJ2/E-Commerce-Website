@@ -1,205 +1,384 @@
 /* src/components/Footer.css */
 
-:root {
-    --primary-color: #0d6efd;
-    --dark-blue: #022a5e; 
-    --light-gray: #f8f9fa;
-    --text-color: #555;
-    --footer-bg: #0f1a2a;
-    --footer-text-color: #adb5bd;
-}
-
-/* .footer-site {
-    background-color: var(--footer-bg);
-    color: var(--footer-text-color);
-    font-size: 15px;
-    line-height: 1.6;
-} */
-
-/* src/components/Footer.css */
-
-.footer-site {
-    background-color: #070b17;
+/* Basic Styles (Dono par kaam karega) */
+.professional-footer {
+    background: linear-gradient(135deg, #1a2a3a 0%, #0d1520 100%);
     color: #ecf0f1;
-    padding: 30px 0 15px;
     margin-top: auto;
 }
-
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
+/* ... (Aapke baaki basic styles jaise .footer-column, .footer-logo, etc. yahaan paste karein) ... */
 
-.footer-main {
+/* ========================================= */
+/* ===== 1. DESKTOP STYLES (>= 769px) ===== */
+/* ========================================= */
+
+/* Default (Desktop) par mobile footer ko hide karein */
+.mobile-footer {
+    display: none;
+}
+
+/* Desktop Main Layout */
+.desktop-footer .footer-main {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 30px;
-    padding: 30px 0;
+    grid-template-columns: 2fr 1.5fr 2fr;
+    gap: 3rem;
+    padding: 4rem 0;
 }
-
-.footer-column h3,
-.footer-column h4 {
-    margin-bottom: 15px;
+.desktop-footer .footer-column h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+.desktop-footer .footer-column h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #6c3ee1, #8a6de9);
+    border-radius: 2px;
+}
+.desktop-footer .footer-logo {
+    font-size: 2rem;
+    font-weight: 700;
     color: #6c3ee1;
+    margin-bottom: 1.2rem;
+    display: block;
+    background: linear-gradient(135deg, #6c3ee1, #8a6de9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
-
-.footer-logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #6c3ee1;
-    margin-bottom: 10px;
-}
-
-.footer-column p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 15px;
+.desktop-footer .footer-description,
+.desktop-footer .footer-newsletter p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
     opacity: 0.8;
+    color: #b0b7c3;
+    max-width: 300px;
 }
-
-.footer-column ul {
+.desktop-footer .footer-links-group {
+    display: flex;
+    gap: 2.5rem;
+}
+.desktop-footer .footer-links-group h4 {
+    font-size: 1.1rem;
+}
+.desktop-footer .footer-column ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
-
-.footer-column ul li {
-    margin-bottom: 8px;
+.desktop-footer .footer-column ul li {
+    margin-bottom: 0.8rem;
 }
-
-.footer-column ul li a {
-    color: #ecf0f1;
+.desktop-footer .footer-column ul li a {
+    color: #b0b7c3;
     text-decoration: none;
-    font-size: 0.9rem;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
-
-.footer-column ul li a:hover {
-    opacity: 1;
-    color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-
-
-.footer-social-icons {
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
     display: flex;
-    gap: 12px;
-    margin: 15px 0;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0;
 }
-
-.footer-social-icons a {
+.desktop-footer .footer-column ul li a:hover {
+    color: #6c3ee1;
+    transform: translateX(8px);
+}
+.desktop-footer .footer-column ul li a svg {
+    font-size: 0.8rem;
+}
+.desktop-footer .footer-social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.desktop-footer .social-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 35px;
-    height: 35px;
-    background-color: #6c3ee1;
-    border-radius: 50%;
-    color: #ecf0f1;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #b0b7c3;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-.footer-social-icons a:hover {
-    background-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    transform: translateY(-2px);
+.desktop-footer .social-link:hover {
+    background: linear-gradient(135deg, #6c3ee1, #8a6de9);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(108, 62, 225, 0.3);
+    border-color: transparent;
 }
-
-.footer-newsletter-form {
+.desktop-footer .newsletter-form {
     display: flex;
-    gap: 8px;
-    margin-top: 10px;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    max-width: 350px;
 }
-
-.footer-newsletter-form input {
+.desktop-footer .newsletter-input {
     flex: 1;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    font-size: 0.9rem;
+    min-width: 150px;
+    padding: 0.9rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    transition: all 0.3s ease;
 }
-
-.footer-newsletter-form button {
-    padding: 8px 16px;
-    background-color: #6c3ee1;
+.desktop-footer .newsletter-input:focus {
+    outline: none;
+    border-color: #6c3ee1;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(108, 62, 255, 0.1);
+}
+.desktop-footer .newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+.desktop-footer .newsletter-btn {
+    padding: 0.9rem 1.2rem;
+    background: linear-gradient(135deg, #6c3ee1, #8a6de9);
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.3s;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
-
-.footer-newsletter-form button:hover {
-    background-color: #2980b9;
+.desktop-footer .newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(108, 62, 225, 0.3);
 }
-
-.footer-sub {
-    border-top: 1px solid #34495e;
-    padding: 20px 0;
-    background-color: #1a252f;
+.desktop-footer .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 0;
+    background: rgba(0, 0, 0, 0.2);
 }
-
-.footer-sub-content {
+.desktop-footer .bottom-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 1.5rem;
 }
-
-.footer-sub-content p {
+.desktop-footer .copyright p {
     font-size: 0.9rem;
     opacity: 0.7;
-    margin: 0;
+    margin: 0 0 0.5rem 0;
+    color: #b0b7c3;
 }
-
-.footer-payment-icons {
+.desktop-footer .legal-links {
+    display: flex;
+    gap: 1.5rem;
+}
+.desktop-footer .legal-links a {
+    color: #b0b7c3;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+.desktop-footer .legal-links a:hover {
+    color: #6c3ee1;
+}
+.desktop-footer .payment-methods {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+.desktop-footer .payment-icon {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #b0b7c3;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer-payment-icons span {
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
+/* ======================================= */
+/* ===== 2. MOBILE STYLES (<= 768px) ===== */
+/* ======================================= */
 
-.footer-payment-icons img {
-    height: 20px;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
-
-.footer-payment-icons img:hover {
-    opacity: 1;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-    .footer-main {
-        grid-template-columns: 1fr 1fr;
-        gap: 25px;
+    /* Desktop footer ko hide kar dein */
+    .desktop-footer {
+        display: none;
     }
     
-    .footer-sub-content {
-        flex-direction: column;
+    /* Mobile footer ko dikhayein */
+    .mobile-footer {
+    display: block;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+    /* Mobile Newsletter Styles */
+    .mobile-footer .footer-newsletter {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    .mobile-footer .footer-newsletter h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        color: #fff;
+    }
+   .mobile-footer .newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%; /* <-- YEH ADD KAREIN */
+    max-width: 400px;
+    margin: 0 auto;
+}
+    .mobile-footer .newsletter-input {
+        flex: 1;
+        padding: 0.9rem 1.2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        font-size: 0.95rem;
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        
+        width: 100%; /* Taaki yeh container se bahar na nikle */
+  max-width: 500px; /* Aap max-width set kar sakte hain */
+  margin: 0 auto;
+    
+    }
+    .mobile-footer .newsletter-btn {
+        padding: 0.9rem 1.2rem;
+        background: linear-gradient(135deg, #6c3ee1, #8a6de9);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1.1rem;
+    }
+
+    /* Mobile Accordion Styles */
+    .mobile-accordion-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .mobile-accordion-toggle {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: none;
+        border: none;
+        color: #fff;
+        padding: 1.2rem 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    .mobile-accordion-icon {
+        font-size: 1rem;
+        transition: transform 0.3s ease;
+    }
+    .mobile-accordion-icon.open {
+        transform: rotate(180deg);
+    }
+    .mobile-accordion-content {
+        padding-bottom: 1rem;
+    }
+    .mobile-accordion-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .mobile-accordion-content ul li {
+        margin-bottom: 0.5rem;
+    }
+    .mobile-accordion-content ul li a {
+        color: #b0b7c3;
+        text-decoration: none;
+        font-size: 0.95rem;
+        padding: 0.4rem 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .mobile-accordion-content ul li a svg {
+        font-size: 0.8rem;
+    }
+
+    /* Mobile Social Icons */
+    .mobile-social {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .mobile-social .social-link {
+        width: 44px;
+        height: 44px;
+        /* (Baaki styles desktop se le lega agar common rakhein) */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        color: #b0b7c3;
+        text-decoration: none;
+        font-size: 1.1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Mobile Footer Bottom */
+    .footer-bottom-mobile {
+        padding-top: 1.5rem;
         text-align: center;
     }
-}
-
-@media (max-width: 480px) {
-    .footer-main {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .footer-bottom-mobile .payment-methods {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
     }
-    
-    .footer-site {
-        padding: 20px 0 10px;
+    .footer-bottom-mobile .payment-icon {
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #b0b7c3;
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
-    .footer-newsletter-form {
-        flex-direction: column;
+    .footer-bottom-mobile .copyright p {
+        font-size: 0.9rem;
+        opacity: 0.7;
+        margin: 0.5rem 0 0 0;
+        color: #b0b7c3;
+    }
+    .footer-bottom-mobile .legal-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    .footer-bottom-mobile .legal-links a {
+        color: #b0b7c3;
+        text-decoration: none;
+        font-size: 0.85rem;
     }
 }

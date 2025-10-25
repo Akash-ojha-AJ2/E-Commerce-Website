@@ -23,16 +23,24 @@ import AiRoutes from "./routes/AiRoutes.js"
 export const app = express();
 
 
+
+const allowedOrigins = ['https://e-commerce-website-omega-black.vercel.app'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true, // if you're using cookies or sessions
+}));
+
+
 app.use(express.json());
 
 app.use(cookieParser());
-
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true, // ✅ important
-  })
-);
 
 
 app.use((req, res, next) => {

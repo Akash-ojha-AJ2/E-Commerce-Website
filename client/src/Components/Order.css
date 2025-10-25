@@ -40,7 +40,7 @@
     font-size: 3rem;
 }
 
-/* Status Tracker Styles */
+/* Status Tracker Styles - FIXED FOR MOBILE */
 .status-tracker-container {
     padding-top: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -51,15 +51,16 @@
     justify-content: space-between;
     position: relative;
     width: 100%;
+    min-width: 500px; /* Ensure minimum width for proper spacing */
 }
 
 /* The connecting line */
 .status-tracker::before {
     content: '';
     position: absolute;
-    top: 10px; /* Vertically center with the circle */
-    left: 5%;
-    right: 5%;
+    top: 12px; /* Vertically center with the circle */
+    left: 10%;
+    right: 10%;
     height: 4px;
     background-color: #e9ecef;
     z-index: 1;
@@ -71,8 +72,9 @@
     align-items: center;
     position: relative;
     z-index: 2;
-    width: 20%;
-    text-align: center;
+    flex: 1;
+    min-width: 0; /* Important for flex items */
+    padding: 0 5px; /* Reduced padding */
 }
 
 .step-circle {
@@ -85,10 +87,14 @@
 }
 
 .step-label {
-    margin-top: 10px;
-    font-size: 0.8rem;
+    margin-top: 8px;
+    font-size: 0.75rem; /* Smaller font */
     color: #6c757d;
     font-weight: 500;
+    text-align: center;
+    word-break: break-word; /* Allow text to break */
+    line-height: 1.2;
+    padding: 0 2px; /* Minimal padding */
 }
 
 /* Styling for completed steps */
@@ -118,3 +124,141 @@
         box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
     }
 }
+
+/* Mobile-specific fixes */
+@media (max-width: 768px) {
+    .status-tracker-container {
+        overflow-x: auto; /* Enable horizontal scrolling */
+        padding-bottom: 10px;
+        margin: 0 -15px; /* Compensate for container padding */
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .status-tracker {
+        min-width: 450px; /* Reduced minimum width for mobile */
+        padding: 0 10px;
+    }
+    
+    .status-tracker::before {
+        left: 8%;
+        right: 8%;
+        top: 10px;
+    }
+    
+    .step-item {
+        padding: 0 3px;
+    }
+    
+    .step-circle {
+        width: 20px;
+        height: 20px;
+        border-width: 2px;
+    }
+    
+    .step-label {
+        font-size: 0.7rem; /* Even smaller for mobile */
+        margin-top: 6px;
+        padding: 0 1px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 576px) {
+    .status-tracker {
+        min-width: 400px; /* Further reduced for very small screens */
+        padding: 0 5px;
+    }
+    
+    .status-tracker::before {
+        left: 6%;
+        right: 6%;
+    }
+    
+    .step-circle {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .step-label {
+        font-size: 0.65rem;
+        margin-top: 4px;
+    }
+}
+
+/* Custom scrollbar for better appearance */
+.status-tracker-container::-webkit-scrollbar {
+    height: 4px;
+}
+
+.status-tracker-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.status-tracker-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+.status-tracker-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Hide scrollbar when not needed */
+@media (max-width: 768px) {
+    .status-tracker-container {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .status-tracker-container::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+    }
+}
+
+/* Alternative: If you want to force no scrolling and make it fit */
+/* Uncomment below if you prefer this approach */
+
+/*
+@media (max-width: 768px) {
+    .status-tracker-container {
+        overflow-x: visible;
+    }
+    
+    .status-tracker {
+        min-width: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .status-tracker::before {
+        display: none;
+    }
+    
+    .step-item {
+        flex: 0 0 calc(33.333% - 10px);
+        margin-bottom: 10px;
+    }
+    
+    .step-circle::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        width: 10px;
+        height: 2px;
+        background-color: #e9ecef;
+        transform: translateY(-50%);
+    }
+    
+    .step-item:nth-child(3n) .step-circle::after {
+        display: none;
+    }
+    
+    .step-item.completed .step-circle::after {
+        background-color: #0d6efd;
+    }
+}
+*/

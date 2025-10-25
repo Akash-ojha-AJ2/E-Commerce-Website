@@ -6,7 +6,7 @@ import ProductCardSkeleton from '../spinner/ProductCardSkeleton';
 import {Context} from "../../store/Context"
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import './SellerAllProduct.css';
+import './sellerAllProduct.css';
 
 const MyProducts = () => {
   const [products, setProducts] = useState([]);

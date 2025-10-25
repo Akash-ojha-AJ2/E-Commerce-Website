@@ -50,12 +50,11 @@ const AppWrapper = () => {
     setToken(null);
     setUser(null);
     setCartCount(0); 
-    setNotifications([]); // Clear notifications on logout
   };
 
   const logout = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/api/v1/user/logout`, {
+      const response = await fetch(`${backend}/api/v1/user/logout`, {
         credentials: "include"
       });
       const data = await response.json();
@@ -65,7 +64,6 @@ const AppWrapper = () => {
         setUser(null);
         setIsAuthenticated(false);
         setCartCount(0); // Reset cart count
-        setNotifications([]); // Clear notifications
         logoutt();
       } else {
         toast.error(data.message || "Logout failed");
@@ -79,7 +77,7 @@ const AppWrapper = () => {
   // Cart count fetch function
   const fetchCartCount = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/v1/userproduct/cart-count', { 
+      const response = await fetch(`${backend}/api/v1/userproduct/cart-count`, { 
         credentials: 'include'
       });
 
@@ -103,7 +101,7 @@ const AppWrapper = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch('http://localhost:4000/api/v1/user/me', {
+        const res = await fetch(`${backend}/api/v1/user/me`, {
           credentials: 'include',
         });
 

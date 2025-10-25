@@ -3,18 +3,17 @@ export const sendToken = (user, statusCode, message, res) => {
 
   res
     .status(statusCode)
-    .cookie("token", token, {
-      expires: new Date(
-        Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
-      ),
+    .cookie('token', token, {
       httpOnly: true,
-      secure: false, // dev me false, production me true
-      sameSite: "lax", // localhost ke liye "lax", prod me "none"
+      secure: true,   // HTTPS required in production
+      sameSite: 'none', // cross-site cookie
+      maxAge: process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
     })
     .json({
       success: true,
       user,
       message,
-      token,
+      token
     });
 };
+

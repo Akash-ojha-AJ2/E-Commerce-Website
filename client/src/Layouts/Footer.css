@@ -256,6 +256,11 @@
         font-size: 0.95rem;
         background: rgba(255, 255, 255, 0.05);
         color: white;
+        
+        width: 100%; /* Taaki yeh container se bahar na nikle */
+  max-width: 500px; /* Aap max-width set kar sakte hain */
+  margin: 0 auto;
+    
     }
     .mobile-footer .newsletter-btn {
         padding: 0.9rem 1.2rem;

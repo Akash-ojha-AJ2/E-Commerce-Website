@@ -22,7 +22,7 @@ const categories = [
 function CategoryBar() {
     return (
         // Humne 'category-bar' class lagayi hai
-        <div className="d-flex align-items-center gap-3 mb-4 p-3 bg-white rounded-3 shadow-sm category-bar">
+        <div className="d-flex align-items-start gap-3 mb-4 p-3 bg-white rounded-3 shadow-sm category-bar">
             {categories.map((item, i) => (
                 <Link to={`/category/${item.path}`} key={i} className="text-decoration-none text-dark category-item">
                     <div className="text-center">

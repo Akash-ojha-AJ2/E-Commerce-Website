@@ -609,7 +609,7 @@ const CartItem = ({ product, handleQuantityChange, handleRemove }) => {
             className="img-thumbnail me-3 flex-shrink-0" 
             style={{ width: "80px", height: "80px", objectFit: "contain" }}
           />
-          <div className="flex-grow-1">
+          <div className="flex-grow-1" style={{ minWidth: 0 }}>
             <h6 className="mb-1 fw-bold text-truncate">{product.name}</h6>
             {product.avgRating && <StarRating rating={product.avgRating} />}
             <p className="fw-bold text-primary mb-2">₹{product.price?.toLocaleString()}</p>

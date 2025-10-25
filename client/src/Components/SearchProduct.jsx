@@ -175,7 +175,7 @@ function SearchProduct() {
       {!isLoading && products.length > 0 && (
         <div className="row">
           {products.map((product) => (
-            <div key={product._id || product.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex">
+             <div key={product._id || product.id} className="col-6 col-md-4 col-lg-3 mb-4 d-flex">
               <div className="card product-card-enhanced h-100 w-100">
                 
                 {/* Image Container */}

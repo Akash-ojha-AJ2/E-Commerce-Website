@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { Context } from "../store/Context";
 
 const OtpVerification = () => {
-  const { isAuthenticated, setIsAuthenticated, setUser, setToken } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, setUser, setToken,backend } = useContext(Context);
   const { email, phone } = useParams();
   const [otp, setOtp] = useState(["", "", "", "", ""]);
   const [loading, setLoading] = useState(false);

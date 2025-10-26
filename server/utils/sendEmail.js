@@ -84,7 +84,7 @@
 
 import nodeMailer from "nodemailer";
 
-export const sendEmail = async ({ email, subject, html }) => {
+export const sendEmail = async ({ email, subject, message }) => {
   const transporter = nodeMailer.createTransport({
     host: process.env.SMTP_HOST,
     service: process.env.SMTP_SERVICE,
@@ -96,11 +96,13 @@ export const sendEmail = async ({ email, subject, html }) => {
   });
 
   const options = {
-     from: `"ShopKart" <${process.env.SMTP_MAIL}>`,
-      to: email,
-      subject,
-      html, // ✅ HTML body (styled template)
-      text: "Please view this email in HTML format.", // fallback text
+    from: process.env.SMTP_MAIL,
+    to: email,
+    subject,
+    html: message,
   };
   await transporter.sendMail(options);
 };
+
+
+

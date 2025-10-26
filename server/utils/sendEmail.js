@@ -96,10 +96,11 @@ export const sendEmail = async ({ email, subject, message }) => {
   });
 
   const options = {
-    from: `"ShopKart" <${process.env.SMTP_MAIL}>`,
-    to: email,
-    subject,
-    html,
+     from: `"ShopKart" <${process.env.SMTP_MAIL}>`,
+      to: email,
+      subject,
+      html, // ✅ HTML body (styled template)
+      text: "Please view this email in HTML format.", // fallback text
   };
   await transporter.sendMail(options);
 };

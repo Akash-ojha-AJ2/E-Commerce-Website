@@ -10,12 +10,273 @@ config({ path: "./config.env" });
 import { Notification } from "../models/notificationModel.js";
 import { Seller } from "../models/SellerModel.js";
 
-const client = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN);
+// const client = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN);
+
+
+// export const register = catchAsyncError(async (req, res, next) => {
+//   try {
+//     console.log(req.body);
+//     const { name, email, phone, password, verificationMethod } = req.body;
+//     if (!name || !email || !phone || !password || !verificationMethod) {
+//       return next(new ErrorHandler("All fields are required.", 400));
+//     }
+//     function validatePhoneNumber(phone) {
+//       const phoneRegex = /^\+91[6789]\d{9}$/;
+//       return phoneRegex.test(phone);
+//     }
+
+//     if (!validatePhoneNumber(phone)) {
+//       return next(new ErrorHandler("Invalid phone number.", 400));
+//     }
+
+//     const existingUser = await User.findOne({
+//       $or: [
+//         {
+//           email,
+//           accountVerified: true,
+//         },
+//         {
+//           phone,
+//           accountVerified: true,
+//         },
+//       ],
+//     });
+
+//     if (existingUser) {
+//       return next(new ErrorHandler("Phone or Email is already used.", 400));
+//     }
+
+//     const registerationAttemptsByUser = await User.find({
+//       $or: [
+//         { phone, accountVerified: false },
+//         { email, accountVerified: false },
+//       ],
+//     });
+
+//     if (registerationAttemptsByUser.length > 3) {
+//       return next(
+//         new ErrorHandler(
+//           "You have exceeded the maximum number of attempts (3). Please try again after an hour.",
+//           400
+//         )
+//       );
+//     }
+
+//     const userData = {
+//       name,
+//       email,
+//       phone,
+//       password,
+//     };
+
+//     const user = await User.create(userData);
+//     const verificationCode = await user.generateVerificationCode();
+//     await user.save();
+//     sendVerificationCode(
+//       verificationMethod,
+//       verificationCode,
+//       name,
+//       email,
+//       phone,
+//       res
+//     );
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+
+// async function sendVerificationCode(
+//   verificationMethod,
+//   verificationCode,
+//   name,
+//   email,
+//   phone,
+//   res
+// ) {
+//   try {
+//     if (verificationMethod === "email") {
+//       const html = generateEmailTemplate(verificationCode, name);
+//       await sendEmail({
+//         email,
+//         subject: "ShopKart - Verify Your Email",
+//         html, // ✅ HTML body, not plain text
+//       });
+//       res.status(200).json({
+//         success: true,
+//         message: `Verification email successfully sent to ${name}`,
+//       });
+//     } else if (verificationMethod === "phone") {
+//       const verificationCodeWithSpace = verificationCode
+//         .toString()
+//         .split("")
+//         .join(" ");
+//       await client.calls.create({
+//         twiml: `<Response><Say>Your verification code is ${verificationCodeWithSpace}. Your verification code is ${verificationCodeWithSpace}.</Say></Response>`,
+//         from: process.env.TWILIO_PHONE_NUMBER,
+//         to: phone,
+//       });
+//       res.status(200).json({
+//         success: true,
+//         message: `OTP sent.`,
+//       });
+//     } else {
+//       return res.status(500).json({
+//         success: false,
+//         message: "Invalid verification method.",
+//       });
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     return res.status(500).json({
+//       success: false,
+//       message: "Verification code failed to send.",
+//     });
+//   }
+// }
+
+
+
+
+// function generateEmailTemplate(verificationCode, userName = "") {
+//   return `
+//   <!doctype html>
+//   <html>
+//   <head>
+//     <meta charset="utf-8" />
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+//     <title>ShopKart Email Verification</title>
+//   </head>
+//   <body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif;">
+//     <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+//       <tr>
+//         <td align="center" style="padding:24px;">
+//           <table cellspacing="0" cellpadding="0" border="0" width="600" style="max-width:600px; background:#ffffff; border-radius:10px; box-shadow:0 3px 8px rgba(0,0,0,0.05); overflow:hidden;">
+            
+//             <!-- Header -->
+//             <tr>
+//               <td style="background: linear-gradient(90deg,#0d6efd,#6f42c1); padding:20px; text-align:center; color:#fff;">
+//                 <h1 style="margin:0; font-size:22px;">ShopKart</h1>
+//                 <p style="margin:5px 0 0; font-size:14px;">Your trusted online store</p>
+//               </td>
+//             </tr>
+
+//             <!-- Body -->
+//             <tr>
+//               <td style="padding:24px 32px;">
+//                 <p style="font-size:16px; color:#333;">Hello ${userName || "ShopKart User"},</p>
+//                 <p style="font-size:15px; color:#444;">Thank you for signing up at <strong>ShopKart</strong>! Please use the verification code below to confirm your email address.</p>
+
+//                 <div style="text-align:center; margin:24px 0;">
+//                   <div style="display:inline-block; padding:16px 28px; border:2px dashed #0d6efd; border-radius:10px; background:#f8fafc;">
+//                     <span style="font-size:28px; font-weight:700; color:#0d6efd; letter-spacing:4px;">${verificationCode}</span>
+//                   </div>
+//                   <p style="margin-top:10px; font-size:13px; color:#6b7280;">This code will expire in 10 minutes</p>
+//                 </div>
+
+//                 <p style="font-size:14px; color:#444;">If you didn’t request this verification, you can safely ignore this email.</p>
+
+//                 <p style="font-size:14px; color:#333; margin-top:24px;">Cheers,<br><strong>The ShopKart Team</strong></p>
+//               </td>
+//             </tr>
+
+//             <!-- Footer -->
+//             <tr>
+//               <td style="background:#f9fafb; text-align:center; padding:16px; font-size:12px; color:#888;">
+//                 <p style="margin:0;">© ${new Date().getFullYear()} ShopKart. All rights reserved.</p>
+//                 <p style="margin:4px 0 0;">This is an automated email — please do not reply.</p>
+//               </td>
+//             </tr>
+//           </table>
+//         </td>
+//       </tr>
+//     </table>
+//   </body>
+//   </html>
+//   `;
+// }
+
+
+// export const verifyOTP = catchAsyncError(async (req, res, next) => {
+//   const { email, otp, phone } = req.body;
+
+//   function validatePhoneNumber(phone) {
+//     const phoneRegex = /^\+91[6789]\d{9}$/;
+//     return phoneRegex.test(phone);
+//   }
+
+//   if (!validatePhoneNumber(phone)) {
+//     return next(new ErrorHandler("Invalid phone number.", 400));
+//   }
+
+//   try {
+//     const userAllEntries = await User.find({
+//       $or: [
+//         {
+//           email,
+//           accountVerified: false,
+//         },
+//         {
+//           phone,
+//           accountVerified: false,
+//         },
+//       ],
+//     }).sort({ createdAt: -1 });
+
+//     if (!userAllEntries) {
+//       return next(new ErrorHandler("User not found.", 404));
+//     }
+
+//     let user;
+
+
+//     if (userAllEntries.length > 1) {
+//       user = userAllEntries[0];
+
+//       await User.deleteMany({
+//         _id: { $ne: user._id },
+//         $or: [
+//           { phone, accountVerified: false },
+//           { email, accountVerified: false },
+//         ],
+//       });
+//     } else {
+//       user = userAllEntries[0];
+
+//     }
+
+//     console.log(user.verificationCode);
+
+//     if (user.verificationCode !== Number(otp)) {
+//       return next(new ErrorHandler("Invalid OTP.", 400));
+//     }
+
+//     const currentTime = Date.now();
+
+//     const verificationCodeExpire = new Date(
+//       user.verificationCodeExpire
+//     ).getTime();
+//     console.log(currentTime);
+//     console.log(verificationCodeExpire);
+//     if (currentTime > verificationCodeExpire) {
+//       return next(new ErrorHandler("OTP Expired.", 400));
+//     }
+
+//     user.accountVerified = true;
+//     user.verificationCode = null;
+//     user.verificationCodeExpire = null;
+//     await user.save({ validateModifiedOnly: true });
+
+//     sendToken(user, 200, "Account Verified.", res);
+//   } catch (error) {
+//     return next(new ErrorHandler("Internal Server Error.", 500));
+//   }
+// });
+
+
 
 
 export const register = catchAsyncError(async (req, res, next) => {
   try {
-    console.log(req.body);
     const { name, email, phone, password, verificationMethod } = req.body;
     if (!name || !email || !phone || !password || !verificationMethod) {
       return next(new ErrorHandler("All fields are required.", 400));
@@ -95,12 +356,8 @@ async function sendVerificationCode(
 ) {
   try {
     if (verificationMethod === "email") {
-      const html = generateEmailTemplate(verificationCode, name);
-      await sendEmail({
-        email,
-        subject: "ShopKart - Verify Your Email",
-        html, // ✅ HTML body, not plain text
-      });
+      const message = generateEmailTemplate(verificationCode);
+      sendEmail({ email, subject: "Your Verification Code", message });
       res.status(200).json({
         success: true,
         message: `Verification email successfully sent to ${name}`,
@@ -134,67 +391,26 @@ async function sendVerificationCode(
   }
 }
 
-
-
-
-function generateEmailTemplate(verificationCode, userName = "") {
+function generateEmailTemplate(verificationCode) {
   return `
-  <!doctype html>
-  <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>ShopKart Email Verification</title>
-  </head>
-  <body style="margin:0; padding:0; background-color:#f3f4f6; font-family:Arial, Helvetica, sans-serif;">
-    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-      <tr>
-        <td align="center" style="padding:24px;">
-          <table cellspacing="0" cellpadding="0" border="0" width="600" style="max-width:600px; background:#ffffff; border-radius:10px; box-shadow:0 3px 8px rgba(0,0,0,0.05); overflow:hidden;">
-            
-            <!-- Header -->
-            <tr>
-              <td style="background: linear-gradient(90deg,#0d6efd,#6f42c1); padding:20px; text-align:center; color:#fff;">
-                <h1 style="margin:0; font-size:22px;">ShopKart</h1>
-                <p style="margin:5px 0 0; font-size:14px;">Your trusted online store</p>
-              </td>
-            </tr>
-
-            <!-- Body -->
-            <tr>
-              <td style="padding:24px 32px;">
-                <p style="font-size:16px; color:#333;">Hello ${userName || "ShopKart User"},</p>
-                <p style="font-size:15px; color:#444;">Thank you for signing up at <strong>ShopKart</strong>! Please use the verification code below to confirm your email address.</p>
-
-                <div style="text-align:center; margin:24px 0;">
-                  <div style="display:inline-block; padding:16px 28px; border:2px dashed #0d6efd; border-radius:10px; background:#f8fafc;">
-                    <span style="font-size:28px; font-weight:700; color:#0d6efd; letter-spacing:4px;">${verificationCode}</span>
-                  </div>
-                  <p style="margin-top:10px; font-size:13px; color:#6b7280;">This code will expire in 10 minutes</p>
-                </div>
-
-                <p style="font-size:14px; color:#444;">If you didn’t request this verification, you can safely ignore this email.</p>
-
-                <p style="font-size:14px; color:#333; margin-top:24px;">Cheers,<br><strong>The ShopKart Team</strong></p>
-              </td>
-            </tr>
-
-            <!-- Footer -->
-            <tr>
-              <td style="background:#f9fafb; text-align:center; padding:16px; font-size:12px; color:#888;">
-                <p style="margin:0;">© ${new Date().getFullYear()} ShopKart. All rights reserved.</p>
-                <p style="margin:4px 0 0;">This is an automated email — please do not reply.</p>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </body>
-  </html>
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+      <h2 style="color: #4CAF50; text-align: center;">Verification Code</h2>
+      <p style="font-size: 16px; color: #333;">Dear User,</p>
+      <p style="font-size: 16px; color: #333;">Your verification code is:</p>
+      <div style="text-align: center; margin: 20px 0;">
+        <span style="display: inline-block; font-size: 24px; font-weight: bold; color: #4CAF50; padding: 10px 20px; border: 1px solid #4CAF50; border-radius: 5px; background-color: #e8f5e9;">
+          ${verificationCode}
+        </span>
+      </div>
+      <p style="font-size: 16px; color: #333;">Please use this code to verify your email address. The code will expire in 10 minutes.</p>
+      <p style="font-size: 16px; color: #333;">If you did not request this, please ignore this email.</p>
+      <footer style="margin-top: 20px; text-align: center; font-size: 14px; color: #999;">
+        <p>Thank you,<br>Your Company Team</p>
+        <p style="font-size: 12px; color: #aaa;">This is an automated message. Please do not reply to this email.</p>
+      </footer>
+    </div>
   `;
 }
-
 
 export const verifyOTP = catchAsyncError(async (req, res, next) => {
   const { email, otp, phone } = req.body;
@@ -227,7 +443,7 @@ export const verifyOTP = catchAsyncError(async (req, res, next) => {
     }
 
     let user;
-
+   
 
     if (userAllEntries.length > 1) {
       user = userAllEntries[0];
@@ -241,7 +457,7 @@ export const verifyOTP = catchAsyncError(async (req, res, next) => {
       });
     } else {
       user = userAllEntries[0];
-
+     
     }
 
     console.log(user.verificationCode);
@@ -271,6 +487,7 @@ export const verifyOTP = catchAsyncError(async (req, res, next) => {
     return next(new ErrorHandler("Internal Server Error.", 500));
   }
 });
+
 
 export const login = catchAsyncError(async (req, res, next) => {
   const { email, password } = req.body;

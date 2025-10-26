@@ -819,10 +819,13 @@
 
 
 
+<<<<<<< Updated upstream
 
 
 
 
+=======
+>>>>>>> Stashed changes
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { Context } from "../../store/Context";
@@ -1284,7 +1287,11 @@ function HeadphonesCompactContainer({ products, onWishlistToggle, onBuyNow }) {
       </div>
 
       {/* Header */}
+<<<<<<< Updated upstream
      
+=======
+    
+>>>>>>> Stashed changes
 
       {/* Products Grid */}
       <div className="headphone-compact-grid">
@@ -1432,7 +1439,11 @@ function WatchesProfessional({ products, onWishlistToggle, onBuyNow }) {
   return (
     <div className="watches-professional-container">
       {/* Header */}
+<<<<<<< Updated upstream
      
+=======
+   
+>>>>>>> Stashed changes
 
       {/* Products Grid */}
       <div className="mobile-products-grid">
@@ -1614,7 +1625,11 @@ function WatchProfessionalCard({ watch, index, onWishlistToggle, onBuyNow }) {
 function TabletsProfessional({ products, onWishlistToggle, onBuyNow }) {
   return (
     <div className="tablets-professional-container">
+<<<<<<< Updated upstream
     
+=======
+      
+>>>>>>> Stashed changes
 
       <div className="tablets-professional-grid">
         {products.map((tablet, index) => (
@@ -1691,7 +1706,11 @@ function TabletProfessionalCard({ tablet, index, onWishlistToggle, onBuyNow }) {
 function WashingMachinesProfessional({ products, onWishlistToggle, onBuyNow }) {
   return (
     <div className="washing-machines-professional-container">
+<<<<<<< Updated upstream
     
+=======
+     
+>>>>>>> Stashed changes
 
       <div className="washing-machines-professional-grid">
         {products.map((machine, index) => (
@@ -1743,14 +1762,22 @@ function WashingMachineProfessionalCard({ machine, index, onWishlistToggle, onBu
       <div className="washing-machine-professional-name">{machine.name}</div>
       
       <div className="washing-machine-professional-capacity">
+<<<<<<< Updated upstream
         <span>⚡</span>{truncateName(specs.capacity, 12)}
               
+=======
+        <span>⚡</span> Capacity: {specs.capacity}
+>>>>>>> Stashed changes
       </div>
       
       <div className="washing-machine-professional-type">{specs.type}</div>
 
       <div className="washing-machine-professional-price-section">
         <div className="washing-machine-professional-price">₹{machine.price?.toLocaleString()}</div>
+<<<<<<< Updated upstream
+=======
+        <div className="washing-machine-professional-delivery">Free Install</div>
+>>>>>>> Stashed changes
       </div>
     </div>
   );
@@ -1759,7 +1786,11 @@ function WashingMachineProfessionalCard({ machine, index, onWishlistToggle, onBu
 function GymEssentialsProfessional({ products, onWishlistToggle, onBuyNow }) {
   return (
     <div className="gym-professional-container">
+<<<<<<< Updated upstream
     >
+=======
+      
+>>>>>>> Stashed changes
 
       <div className="gym-professional-grid">
         {products.map((gym, index) => (
@@ -1814,7 +1845,11 @@ function GymProfessionalCard({ gym, index, onWishlistToggle, onBuyNow }) {
 
       <div className="gym-professional-price-section">
         <div className="gym-professional-price">₹{gym.price?.toLocaleString()}</div>
+<<<<<<< Updated upstream
         
+=======
+        <div className="gym-professional-material">{specs.material.split(' ')[0]}</div>
+>>>>>>> Stashed changes
       </div>
     </div>
   );
@@ -2633,3 +2668,30 @@ function GymProfessionalCard({ gym, index, onWishlistToggle, onBuyNow }) {
 export default HomePage;
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes

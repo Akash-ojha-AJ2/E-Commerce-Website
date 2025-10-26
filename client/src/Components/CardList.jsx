@@ -557,6 +557,16 @@
 
 
 
+<<<<<<< Updated upstream
+=======
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
 import React, { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -1188,4 +1198,8 @@ function CartPage() {
   );
 }
 
+<<<<<<< Updated upstream
 export default CartPage;
+=======
+export default CartPage;
+>>>>>>> Stashed changes

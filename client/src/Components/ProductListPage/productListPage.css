@@ -1200,9 +1200,12 @@ select:focus,
 
 
 
+<<<<<<< Updated upstream
 
 
 
+=======
+>>>>>>> Stashed changes
 /* =========================================== */
 /* FINAL MOBILE VIEW CSS - COMPLETE FIX */
 /* =========================================== */
@@ -1574,7 +1577,11 @@ select:focus,
 .products-grid .col-12,
 .products-featured .col-12 {
   display: flex !important;
+<<<<<<< Updated upstream
 }
 
 
 
+=======
+}
+>>>>>>> Stashed changes

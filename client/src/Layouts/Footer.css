@@ -249,6 +249,7 @@
     margin: 0 auto;
 }
     .mobile-footer .newsletter-input {
+<<<<<<< Updated upstream
         flex: 1;
         padding: 0.9rem 1.2rem;
         border: 1px solid rgba(255, 255, 255, 0.2);
@@ -261,6 +262,11 @@
   max-width: 500px; /* Aap max-width set kar sakte hain */
   margin: 0 auto;
     
+=======
+        width: 100%; /* Taaki yeh container se bahar na nikle */
+  max-width: 500px; /* Aap max-width set kar sakte hain */
+  margin: 0 auto;
+>>>>>>> Stashed changes
     }
     .mobile-footer .newsletter-btn {
         padding: 0.9rem 1.2rem;
@@ -381,4 +387,8 @@
         text-decoration: none;
         font-size: 0.85rem;
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

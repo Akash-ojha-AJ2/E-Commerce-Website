@@ -58,7 +58,7 @@ const MyOrder = () => {
     
     try {
       await axios.put(
-        `${backend}/seller/status/${selectedOrder._id}`,
+         `${backend}/api/seller/status/${selectedOrder._id}`,
         { status: newStatus },
         { withCredentials: true }
       );

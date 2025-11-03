@@ -1884,7 +1884,7 @@ function GymProfessionalCard({ gym, index, onWishlistToggle, onBuyNow }) {
   return (
     <div className="homepage-main bg-light">
       <CategoryBar />
-      <MainCarousel bannerProducts={bannerProducts} loading={loadingBanners} />
+      {/* <MainCarousel bannerProducts={bannerProducts} loading={loadingBanners} /> */}
 
       <Container fluid className="mt-4 px-4">
         

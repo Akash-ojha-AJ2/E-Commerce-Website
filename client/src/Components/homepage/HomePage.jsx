@@ -1787,7 +1787,7 @@ function GymEssentialsProfessional({ products, onWishlistToggle, onBuyNow }) {
   return (
     <div className="gym-professional-container">
 <<<<<<< Updated upstream
-    >
+    
 =======
       
 >>>>>>> Stashed changes

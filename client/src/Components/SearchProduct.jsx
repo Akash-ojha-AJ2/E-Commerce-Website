@@ -175,11 +175,7 @@ function SearchProduct() {
       {!isLoading && products.length > 0 && (
         <div className="row">
           {products.map((product) => (
-<<<<<<< Updated upstream
              <div key={product._id || product.id} className="col-6 col-md-4 col-lg-3 mb-4 d-flex">
-=======
-            <div key={product._id || product.id} className="col-6 col-md-4 col-lg-3 mb-4 d-flex">
->>>>>>> Stashed changes
               <div className="card product-card-enhanced h-100 w-100">
                 
                 {/* Image Container */}
@@ -235,3 +231,4 @@ function SearchProduct() {
 }
 
 export default SearchProduct;
+

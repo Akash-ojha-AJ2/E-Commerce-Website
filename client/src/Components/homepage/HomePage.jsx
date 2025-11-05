@@ -1786,11 +1786,7 @@ function WashingMachineProfessionalCard({ machine, index, onWishlistToggle, onBu
 function GymEssentialsProfessional({ products, onWishlistToggle, onBuyNow }) {
   return (
     <div className="gym-professional-container">
-<<<<<<< Updated upstream
-    
-=======
-      
->>>>>>> Stashed changes
+
 
       <div className="gym-professional-grid">
         {products.map((gym, index) => (

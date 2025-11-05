@@ -1616,7 +1616,6 @@ body {
 
 
 
-<<<<<<< Updated upstream
 
 
 
@@ -1628,9 +1627,6 @@ body {
 
 
 
-=======
-/* Mobile Cart View Styles */
->>>>>>> Stashed changes
 /* Mobile Cart View Styles - 2 items per row */
 @media (max-width: 768px) {
   .mobile-products-grid {
@@ -2374,12 +2370,7 @@ body {
 /* Professional Watches Mobile Design */
 @media (max-width: 768px) {
   .watches-professional-container {
-<<<<<<< Updated upstream
     padding: 0 12px;
-=======
- 
-    margin: auto;
->>>>>>> Stashed changes
   }
 
   .watches-professional-grid {
@@ -3113,8 +3104,4 @@ body {
   width: 50px;
   background: #f1f5f9;
   border-radius: 9px;
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes

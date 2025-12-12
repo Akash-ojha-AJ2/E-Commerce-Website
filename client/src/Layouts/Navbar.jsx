@@ -135,6 +135,27 @@ function Navbar({ isLoggedIn }) {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    useEffect(() => {
+    if (isLoggedIn && user?._id) {
+        fetchNotifications();
+    }
+}, [isLoggedIn, user]);
+
+const fetchNotifications = async () => {
+    try {
+        const response = await axios.get(`${backend}/api/v1/notifications/notifications`, {
+            withCredentials: true
+        });
+        
+        if (response.data.success) {
+            setNotifications(response.data.notifications || []);
+        }
+    } catch (error) {
+        console.error('Failed to fetch notifications:', error);
+        setNotifications([]);
+    }
+};
+
     return (
         <nav className="modern-navbar">
             <div className="nav-container">

@@ -5,10 +5,14 @@ import { toast } from "react-toastify";
 import { Context } from "../store/Context";
 
 const OtpVerification = () => {
-  const { isAuthenticated, setIsAuthenticated, setUser, setToken,backend } = useContext(Context);
-  const { email, phone } = useParams();
+  const { isAuthenticated, setIsAuthenticated, setUser, setToken, backend } = useContext(Context);
+  const { email, phone, method } = useParams(); // method will be 'email' or 'phone'
   const [otp, setOtp] = useState(["", "", "", "", ""]);
   const [loading, setLoading] = useState(false);
+
+  // determine which contact to show based on method param
+  const verificationMethod = method || "email";
+  const contactToShow = verificationMethod === "phone" ? phone : email;
 
   const handleChange = (value, index) => {
     if (!/^\d*$/.test(value)) return;
@@ -16,13 +20,15 @@ const OtpVerification = () => {
     newOtp[index] = value;
     setOtp(newOtp);
     if (value && index < otp.length - 1) {
-      document.getElementById(`otp-input-${index + 1}`).focus();
+      const next = document.getElementById(`otp-input-${index + 1}`);
+      if (next) next.focus();
     }
   };
 
   const handleKeyDown = (e, index) => {
     if (e.key === "Backspace" && otp[index] === "" && index > 0) {
-      document.getElementById(`otp-input-${index - 1}`).focus();
+      const prev = document.getElementById(`otp-input-${index - 1}`);
+      if (prev) prev.focus();
     }
   };
 
@@ -71,10 +77,10 @@ const OtpVerification = () => {
         <div className="otp-header">
           <h1 className="otp-title">Verify Your Account</h1>
           <p className="otp-subtitle">
-            We've sent a 5-digit verification code to your {email ? 'email' : 'phone'}
+            We've sent a 5-digit verification code to your {verificationMethod === 'phone' ? 'phone' : 'email'}
           </p>
           <div className="otp-contact-info">
-            {email ? email : phone}
+            {contactToShow}
           </div>
         </div>
 

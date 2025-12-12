@@ -46,7 +46,7 @@ const Register = () => {
       if (!response.ok) throw new Error(result.message || "Registration failed");
 
       toast.success(result.message);
-      navigateTo(`/otp-verification/${formData.email}/${dataToSend.phone}`);
+      navigateTo(`/otp-verification/${encodeURIComponent(formData.email)}/${encodeURIComponent(dataToSend.phone)}/${formData.verificationMethod}`);
     } catch (error) {
       toast.error(error.message);
     } finally {

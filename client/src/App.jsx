@@ -86,7 +86,7 @@ function AppContent({ isLoggedIn, isAdmin, isseller, isUser }) {
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<Login isLoggedIn={isLoggedIn} />} />
               <Route path="/signup" element={<SignUp isLoggedIn={isLoggedIn} />} />
-              <Route path="/otp-verification/:email/:phone" element={<OTPVerification />} />
+              <Route path="/otp-verification/:email/:phone/:method" element={<OTPVerification />} />
               <Route path="/password/forgot" element={<ForgotPassword />} />
               <Route path="/password/reset/:token" element={<ResetPassword />} />
               <Route path="/product/:id" element={<ProductDetail />} />

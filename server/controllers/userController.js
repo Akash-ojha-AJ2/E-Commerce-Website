@@ -94,42 +94,96 @@ async function sendVerificationCode(
   res
 ) {
   try {
+    // === EMAIL ===
     if (verificationMethod === "email") {
       const html = generateEmailTemplate(verificationCode, name);
       await sendEmail({
         email,
         subject: "ShopKart - Verify Your Email",
-        html, // ✅ HTML body, not plain text
+        html,
       });
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
-        message: `Verification email successfully sent to ${name}`,
-      });
-    } else if (verificationMethod === "phone") {
-      const verificationCodeWithSpace = verificationCode
-        .toString()
-        .split("")
-        .join(" ");
-      await client.calls.create({
-        twiml: `<Response><Say>Your verification code is ${verificationCodeWithSpace}. Your verification code is ${verificationCodeWithSpace}.</Say></Response>`,
-        from: process.env.TWILIO_PHONE_NUMBER,
-        to: phone,
-      });
-      res.status(200).json({
-        success: true,
-        message: `OTP sent.`,
-      });
-    } else {
-      return res.status(500).json({
-        success: false,
-        message: "Invalid verification method.",
+        message: `Verification email sent to ${email}`,
       });
     }
-  } catch (error) {
-    console.log(error);
+
+    // === PHONE / SMS ===
+    if (verificationMethod === "phone") {
+      // Prefer Twilio Verify if configured (more reliable and recommended)
+      if (process.env.TWILIO_VERIFY_SERVICE_SID) {
+        try {
+          await client.verify
+            .services(process.env.TWILIO_VERIFY_SERVICE_SID)
+            .verifications.create({ to: phone, channel: "sms" });
+
+          return res.status(200).json({
+            success: true,
+            message: `OTP sent to ${phone} via Twilio Verify.`,
+          });
+        } catch (verifyErr) {
+          console.warn("Twilio Verify failed:", verifyErr?.message || verifyErr);
+          // Fall through to try SMS via messages.create as a fallback
+        }
+      }
+
+      // Fallback: send SMS using messaging (requires TWILIO_PHONE_NUMBER)
+      if (!process.env.TWILIO_PHONE_NUMBER) {
+        return res.status(500).json({
+          success: false,
+          message:
+            "Server not configured to send SMS. Set TWILIO_VERIFY_SERVICE_SID or TWILIO_PHONE_NUMBER in environment.",
+        });
+      }
+
+      try {
+        const sms = await client.messages.create({
+          body: `Your ShopKart verification code is ${verificationCode}`,
+          from: process.env.TWILIO_PHONE_NUMBER,
+          to: phone,
+        });
+
+        return res.status(200).json({
+          success: true,
+          message: `OTP sent via SMS to ${phone}.`,
+          sid: sms.sid,
+        });
+      } catch (smsErr) {
+        console.error("Twilio messages.create error:", smsErr);
+
+        if (smsErr?.code === 21210) {
+          return res.status(400).json({
+            success: false,
+            message:
+              "Twilio 'from' number not verified or not purchased for your account (21210). Purchase a Twilio number or verify caller ID.",
+            details: smsErr.message,
+          });
+        }
+        if (smsErr?.code === 21614) {
+          return res.status(400).json({
+            success: false,
+            message:
+              "Destination phone number cannot receive SMS (21614). Check number format and carrier support.",
+            details: smsErr.message,
+          });
+        }
+
+        return res.status(500).json({
+          success: false,
+          message: "Failed to send OTP via SMS.",
+          error: smsErr?.message || smsErr,
+        });
+      }
+    }
+
+    // Unknown method
+    return res.status(400).json({ success: false, message: "Invalid verification method." });
+  } catch (err) {
+    console.error("sendVerificationCode unexpected error:", err);
     return res.status(500).json({
       success: false,
       message: "Verification code failed to send.",
+      error: err?.message || "Unknown error",
     });
   }
 }
